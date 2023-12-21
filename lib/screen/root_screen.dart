@@ -31,7 +31,7 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
   }
 
   void onPhoneShake() {
-    final rand = new Random();
+    final rand = Random();
     setState(() {
       number = rand.nextInt(5) + 1;
     });
@@ -43,7 +43,8 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
 
   @override
   dispose() {
-    controller!.removeListener(tabListener);
+    // controller!.removeListener(tabListener);
+    controller!.dispose(); //리스너 제거필요 없고 이것만 하면 된다.
     shakeDetector!.stopListening();
     super.dispose();
   }
@@ -62,9 +63,6 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
   List<Widget> renderChildren() {
     return [
       HomeScreen(number: number),
-      // Container(
-      //     child: Center(
-      //         child: Text('Tab 2', style: TextStyle(color: Colors.white)))),
       SettingsScreen(
         threshold: threshold,
         onThresholdChange: onThresholdChange,
@@ -86,7 +84,7 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
             controller!.animateTo(index);
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.edgesensor_high_outlined),
             label: '주사위',

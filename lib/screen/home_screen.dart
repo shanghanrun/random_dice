@@ -8,24 +8,25 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Center(
-        child: Image.asset('images/$number.png'),
-      ),
-      SizedBox(height: 32),
-      Text('행운의 숫자',
-          style: TextStyle(
-            color: secondaryColor,
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
-          )),
-      SizedBox(height: 12),
-      Text(number.toString(),
-          style: TextStyle(
-            color: primaryColor,
-            fontSize: 60,
-            fontWeight: FontWeight.w200,
-          ))
-    ]);
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset('images/$number.png'),
+          const SizedBox(height: 32),
+          Text('행운의 숫자',
+              style: TextStyle(
+                color: secondaryColor,
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+              )),
+          const SizedBox(height: 12),
+          Text(number.toString(),
+              style: const TextStyle(
+                color: primaryColor,
+                fontSize: 60,
+                fontWeight: FontWeight.w200,
+              ))
+        ]);
   }
 }

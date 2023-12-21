@@ -17,11 +17,15 @@ class SettingsScreen extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.only(left: 20),
         child: Row(children: [
-          Text('민감도',
+          Text('민감도  ',
               style: TextStyle(
                   color: secondaryColor,
                   fontSize: 20,
-                  fontWeight: FontWeight.w700))
+                  fontWeight: FontWeight.w700)),
+          Text(
+            threshold.toStringAsFixed(1),
+            style: const TextStyle(fontSize: 20, color: Colors.blue),
+          )
         ]),
       ),
       Slider(
